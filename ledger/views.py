@@ -15,16 +15,11 @@ def basicParams(request, num = 1):
         number = "nth"
     return render(request, "basicParams.html", {"number":number})
 
-def tasks(request):
+def recipeList(request):
     ctx = {
-        "tasks": [
-            "task1",
-            "task2",
-            "task3",
-            "task4",
-            "task5",
-            "task6",
-            "task7"
+        "Recipes": [
+            "Recipe 1",
+            "Recipe 2"
         ]
     }
-    return render(request, "task_list.html", ctx)
+    return render(request, "recipelist.html", ctx)
