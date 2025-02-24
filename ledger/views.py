@@ -6,14 +6,35 @@ def home(request):
     return HttpResponse("Hello World!")
 # Create your views here.
 
-def basicParams(request, num = 1):
-    if num == 1:
-        number = "first"
-    elif num == 2:
-        number = "second"
-    else:
-        number = "nth"
-    return render(request, "basicParams.html", {"number":number})
+def recipeOne(request):
+    ctx = {
+        "name": "Recipe 1",
+    "ingredients": [
+        {
+            "name": "tomato",
+            "quantity": "3pcs"
+        },
+        {
+            "name": "onion",
+            "quantity": "1pc"
+        },
+        {
+            "name": "pork",
+            "quantity": "1kg"
+        },
+        {
+            "name": "water",
+            "quantity": "1L"
+        },
+        {
+            "name": "sinigang mix",
+            "quantity": "1 packet"
+        }
+    ],
+    "link" :  "/recipe/1"
+    }
+    
+    return render(request, "recipelist.html", ctx)
 
 def recipeList(request):
     ctx = {
