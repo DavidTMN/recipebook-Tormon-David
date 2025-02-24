@@ -21,7 +21,10 @@ def tasks(request):
             "task1",
             "task2",
             "task3",
-            "task4"
+            "task4",
+            "task5",
+            "task6",
+            "task7"
         ]
     }
     return render(request, "task_list.html", ctx)
