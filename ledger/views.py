@@ -76,7 +76,7 @@ def recipe2(request):
 
 def recipeList(request):
     ctx = {
-        "Recipes": [
+        "recipes": [
             "Recipe 1",
             "Recipe 2"
         ]

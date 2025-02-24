@@ -1,11 +1,10 @@
-<!DOCTYPE html>
-<html lang = en-US>
-<head>
-    <title>Recipe Book</title>
-</head>
-<body>
-        {%for recipe in Recipes %}
-            <ul><a href = "">{{ recipe }}</a></ul>
+{% extends "baseTemplate.html" %}
+{% block title %} {% endblock %}
+{% block content %}
+    <ul>
+        {% for recipe in recipes %}
+        <ul><a href = "">{{ recipe }}</a></ul>
+        <br>
         {% endfor %}
-</body>
-</html>
+    </ul>
+{% endblock %}
