@@ -1,10 +1,8 @@
 {% extends "baseTemplate.html" %}
 {% block title %} {% endblock %}
 {% block content %}
-    <ul>
-        {% for recipe in recipes %}
-        <ul><a href = "{{ recipe.link }}">{{ recipe.name }}</a></ul>
-        <br>
-        {% endfor %}
-    </ul>
+{% for recipe in recipes %}
+<ul><a href = "{{ recipe.link }}">{{ recipe.name }}</a></ul>
+<br>
+{% endfor %}
 {% endblock %}
