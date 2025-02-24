@@ -6,7 +6,7 @@ def home(request):
     return HttpResponse("Hello World!")
 # Create your views here.
 
-def recipeOne(request):
+def recipe1(request):
     ctx = {
         "name": "Recipe 1",
     "ingredients": [
@@ -36,7 +36,7 @@ def recipeOne(request):
     
     return render(request, "ingredientList.html", ctx)
 
-def recipeTwo(request):
+def recipe2(request):
     ctx = {
     "name": "Recipe 2",
     "ingredients": [
