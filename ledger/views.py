@@ -1,11 +1,12 @@
-from django.http import render, HttpResponse
+from django.http import HttpResponse
+from django.shortcuts import render
 
 
 def home(request):
     return HttpResponse("Hello World!")
 # Create your views here.
 
-def basicTemplate(request, num = 1):
+def basicParams(request, num = 1):
     if num == 1:
         number = "first"
     elif num == 2:
