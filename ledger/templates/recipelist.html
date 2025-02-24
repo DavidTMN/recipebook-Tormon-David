@@ -3,7 +3,7 @@
 {% block content %}
     <ul>
         {% for recipe in recipes %}
-        <ul><a href = "">{{ recipe }}</a></ul>
+        <ul><a href = "{{ recipe.link }}">{{ recipe.name }}</a></ul>
         <br>
         {% endfor %}
     </ul>
