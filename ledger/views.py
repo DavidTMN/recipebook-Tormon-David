@@ -36,6 +36,44 @@ def recipeOne(request):
     
     return render(request, "recipelist.html", ctx)
 
+def recipeTwo(request):
+    ctx = {
+    "name": "Recipe 2",
+    "ingredients": [
+        {
+            "name": "garlic",
+            "quantity": "1 head"
+        },
+        {
+            "name": "onion",
+            "quantity": "1pc"
+        },
+        {
+            "name": "vinegar",
+            "quantity": "1/2cup"
+        },
+        {
+            "name": "water",
+            "quantity": "1 cup"
+        },
+        {
+            "name": "salt",
+            "quantity": "1 tablespoon"
+        },
+        {
+            "name": "whole black peppers",
+            "quantity": "1 tablespoon"
+        },
+        {
+            "name": "pork",
+            "quantity": "1 kilo"
+        }
+    ],
+    "link": "/recipe/2"
+}
+    
+    return render(request, "recipelist.html", ctx)
+
 def recipeList(request):
     ctx = {
         "Recipes": [
