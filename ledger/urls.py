@@ -1,8 +1,11 @@
 from django.urls import path
-from .views import index
+from . import views
+from .views import home
 
 urlpatterns = [
-    path('', index, name = "index"),
+    path('', home, name = "home"),
+    path("tasks/", views.tasks, name = "tasks"),
+    path("basic/<int:num>", views.basicParams, name="basicParams")
 ]
 
 app_name = "ledger"
