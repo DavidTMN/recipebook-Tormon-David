@@ -16,4 +16,4 @@ class RecipeAdmin(admin.ModelAdmin):
     
 class RecipeIngredientAdmin(admin.ModelAdmin):
     model = RecipeIngredient
-    list_display = ("name",)
+    list_display = ("recipe", "ingredient", "quantity")
