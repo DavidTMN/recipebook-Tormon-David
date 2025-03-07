@@ -9,11 +9,15 @@ class RecipeIngredientInline(admin.TabularInline):
 class IngredientAdmin(admin.ModelAdmin):
     model = Ingredient
     list_display = ("name",)
+    list_filter = ("name")
+    search_fields = ("name",)
     
 class RecipeAdmin(admin.ModelAdmin):
     model = Recipe
     list_display = ("name",)
     inlines = [RecipeIngredientInline]
+    search_fields = ("name",)
+    list_filter = ("name")
     
 class RecipeIngredientAdmin(admin.ModelAdmin):
     model = RecipeIngredient
