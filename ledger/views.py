@@ -144,4 +144,6 @@ def recipeList(request):
 
 def recipesInDatabase(request):
     ingredients = RecipeIngredient.objects.all()
+    recipes = RecipeIngredient.objects.filter(recipe_name="recipe1")
+    
     return render(request, "ingredientList.html", {"ingredients": ingredients})
