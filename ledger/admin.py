@@ -22,6 +22,7 @@ class RecipeAdmin(admin.ModelAdmin):
 class RecipeIngredientAdmin(admin.ModelAdmin):
     model = RecipeIngredient
     list_display = ("Recipe", "Ingredient", "Quantity",)
+    list_filter = ("Recipe", "Ingredient", "Quantity",)
     
 admin.site.register(Recipe, RecipeAdmin)
 admin.site.register(Ingredient, IngredientAdmin)
