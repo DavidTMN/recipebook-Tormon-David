@@ -10,7 +10,6 @@ class Recipe(models.Model):
     
 class RecipeIngredient(models.Model):
     name = models.CharField(max_length=50)
-    isCompleted = models.BooleanField(default=False)
-    dateCreated = models.DateTimeField(null=False)
+    quantity = models.CharField(max_length=50)
     recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE)
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
