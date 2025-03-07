@@ -8,7 +8,9 @@ def home(request):
 # Create your views here.
 
 def recipesInDatabase(request):
-    ingredients = RecipeIngredient.objects.all()
-    recipes = RecipeIngredient.objects.filter(recipe_name="recipe1")
-    
-    return render(request, "ingredientList.html", {"ingredients": ingredients})
+    recipes = Recipe.objects.all()
+    return render(request, "recipelist.html", {"recipe": recipes})
+
+def recipeContents(request, pk):
+    recipe = Recipe.objects.get(pk=pk)
+    return render(request, "recipe.html", {recipe: recipe})
