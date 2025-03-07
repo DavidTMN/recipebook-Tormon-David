@@ -1,5 +1,6 @@
 from django.http import HttpResponse
 from django.shortcuts import render
+from .models import Recipe, Ingredient, RecipeIngredient
 
 
 def home(request):
@@ -140,3 +141,8 @@ def recipeList(request):
     ]
 }
     return render(request, "recipeList.html", ctx)
+
+def recipesInDatabase(request):
+    items = Recipe.objects.all()
+    #items = TaskGroup.objects.filter(name_contains="test")
+    return render
