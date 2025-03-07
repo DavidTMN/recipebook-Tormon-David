@@ -13,4 +13,4 @@ def recipesInDatabase(request):
 
 def recipeContents(request, pk):
     recipe = Recipe.objects.get(pk=pk)
-    return render(request, "recipe.html", {recipe: recipe})
+    return render(request, "ingredientList.html", {recipe: recipe})
