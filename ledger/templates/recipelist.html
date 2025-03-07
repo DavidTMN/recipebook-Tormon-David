@@ -2,7 +2,7 @@
 {% block title %} {% endblock %}
 {% block content %}
 {% for recipe in recipes %}
-<ul><a href = "{{ recipe.link }}">{{ recipe.name }}</a></ul>
+<ul><a href = "{{ recipe.get_absolute_url }}">{{ recipe.name }}</a></ul>
 <br>
 {% endfor %}
 {% endblock %}

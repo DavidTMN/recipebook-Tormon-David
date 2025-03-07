@@ -4,7 +4,7 @@ from .views import home
 
 urlpatterns = [
     path("recipes/list", views.recipesInDatabase, name = "recipeList"),
-    path("recipe/<int:pk>", views.recipeDetails, name = "recipeDetail"),
+    path("recipe/<int:pk>", views.recipeContents, name = "recipeDetail"),
     
 ]
 app_name = "ledger"

@@ -2,12 +2,12 @@
 {% block title %} {% endblock %}
 {% block content %}
 <div>
-    {{ name }}
+    {{ recipe.name }}
 </div>
     <a><br>Ingredients:</a>
     <ul>
-        {% for ingredient in ingredients %}
-        <li>{{ ingredient.quantity }} of {{ ingredient.name }}</li>
+        {% for ingredient in recipe.ingredients.all %}
+        <li>{{ ingredient.quantity }} of {{ ingredient.ingredient.name }}</li>
         {% endfor %}
     </ul>
 {% endblock %}
