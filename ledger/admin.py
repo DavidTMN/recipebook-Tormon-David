@@ -3,6 +3,9 @@ from .models import Recipe, Ingredient, RecipeIngredient
 
 # Register your models here.
 
+class RecipeIngredientInline(admin.TabularInline):
+    model = RecipeIngredient
+    
 class IngredientAdmin(admin.ModelAdmin):
     model = Ingredient
     list_display = ("name",)
@@ -10,6 +13,7 @@ class IngredientAdmin(admin.ModelAdmin):
 class RecipeAdmin(admin.ModelAdmin):
     model = Recipe
     list_display = ("name",)
+    inlines = [RecipeIngredientInline]
     
 class RecipeIngredientAdmin(admin.ModelAdmin):
     model = RecipeIngredient
