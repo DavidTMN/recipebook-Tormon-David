@@ -1,8 +1,9 @@
 {% extends "baseTemplate.html" %}
+{% load static %}
 {% block title %} {% endblock %}
 {% block content %}
 {% for recipe in recipes %}
-<ul><a href = "{{ recipe.get_absolute_url }}">{{ recipe.name }}</a></ul>
+<ul><a href = "{{ recipe.get_absolute_url }}">{{ recipe }}</a></ul>
 <br>
 {% endfor %}
 {% endblock %}
