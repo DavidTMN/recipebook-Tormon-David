@@ -4,9 +4,8 @@ from .views import home
 
 urlpatterns = [
     path('', home, name = "home"),
-    path("recipes/list", views.recipeList, name = "recipeList"),
+    path("recipes/list", views.recipesinDatabase, name = "recipeList"),
     path("recipe/1", views.recipe1, name = "recipe1"),
-    path("recipe/2", views.recipe2, name = "recipe2")
+    path("recipe/2", views.recipe2, name = "recipe2"),
 ]
-
 app_name = "ledger"
