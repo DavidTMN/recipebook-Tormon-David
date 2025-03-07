@@ -13,6 +13,8 @@ class RecipeAdmin(admin.ModelAdmin):
     
 class RecipeIngredientAdmin(admin.ModelAdmin):
     model = RecipeIngredient
-    list_display = ("recipe", "ingredient", "quantity",)
+    list_display = ("Quantity", "Recipe", "Ingredient")
     
-admin.site.register(Recipe, Ingredient, RecipeIngredient)
+admin.site.register(Recipe, RecipeAdmin)
+admin.site.register(Ingredient, IngredientAdmin)
+admin.site.register(RecipeIngredient, RecipeIngredientAdmin)
