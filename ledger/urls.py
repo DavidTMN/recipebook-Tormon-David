@@ -3,8 +3,8 @@ from . import views
 from .views import home
 
 urlpatterns = [
-    path("", home, name = "home"),
     path("recipes/list", views.recipesInDatabase, name = "recipeList"),
+    path("recipe/<int:pk>", views.recipeDetails, name = "recipeDetail"),
     
 ]
 app_name = "ledger"
