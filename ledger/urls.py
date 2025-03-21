@@ -6,6 +6,7 @@ urlpatterns = [
     path("recipes/list", views.recipesInDatabase, name = "recipeList"),
     path("recipe/<int:pk>", views.recipeContents, name = "recipeDetail"),
     path("accounts/", include("django.contrib.auth.urls")),
+    path("accounts/login")
     
 ]
 app_name = "ledger"
