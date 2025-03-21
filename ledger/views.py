@@ -8,8 +8,8 @@ def view_function(request):
 
 def recipesInDatabase(request):
     recipes = Recipe.objects.all()
-    return render(request, "recipelist.html", {"recipes": recipes})
+    return render(request, "recipe_list.html", {"recipes": recipes})
 
 def recipeContents(request, pk):
     recipe = Recipe.objects.get(pk=pk)
-    return render(request, "ingredientList.html", {"recipe": recipe})
+    return render(request, "ingredient_ist.html", {"recipe": recipe})
