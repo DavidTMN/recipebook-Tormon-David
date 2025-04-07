@@ -12,8 +12,6 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 
 from pathlib import Path
 from dotenv import load_dotenv
-from django.conf import settings
-from django.conf.urls.static import static
 import os
 
 load_dotenv()
@@ -136,5 +134,3 @@ USE_TZ = True
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 LOGIN_REDIRECT_URL = '/recipes/list'
 LOGOUT_REDIRECT_URL = '/accounts/login'
-
-urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
