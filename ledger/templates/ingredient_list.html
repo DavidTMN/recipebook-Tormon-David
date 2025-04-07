@@ -1,4 +1,4 @@
-{% extends 'baseTemplate.html' %}
+{% extends 'base_template.html' %}
 {% load static %}
 {% block title %}Recipe Contents:{% endblock %}
 {% block heading %}Recipe Contents:{% endblock %}
@@ -6,6 +6,8 @@
 
 <div>
     {{ recipe.name }}
+    <img src="{{ recipe.image }}" alt="{{ recipe.description }}">
+    {{ recipe.image }}
 </div>
     <a><br>Ingredients:</a>
     <ul>

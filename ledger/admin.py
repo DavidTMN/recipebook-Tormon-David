@@ -9,9 +9,14 @@ class RecipeIngredientInline(admin.TabularInline):
 class RecipeImageInline(admin.TabularInline):
     model = RecipeImage
     
-class RecipeImage(admin.ModelAdmin):
+class RecipeImageAdmin(admin.ModelAdmin):
     model = RecipeImage
-    description = ('description',)
+    list_display = ('image',)
+    list_filter = ('description',)
+    
+class ProfileInline(admin.StackedInline):
+    model = Profile
+    can_delete = False
     
 class IngredientAdmin(admin.ModelAdmin):
     model = Ingredient
@@ -22,19 +27,15 @@ class IngredientAdmin(admin.ModelAdmin):
 class RecipeAdmin(admin.ModelAdmin):
     model = Recipe
     list_display = ('name',)
-    inlines = [RecipeIngredientInline]
+    inlines = [RecipeIngredientInline, RecipeImageInline]
     search_fields = ('name',)
     list_filter = ('name',)
-    inlines = [RecipeImageInline]
     
 class RecipeIngredientAdmin(admin.ModelAdmin):
     model = RecipeIngredient
     list_display = ('recipe', 'ingredient', 'quantity',)
     list_filter = ('recipe', 'ingredient', 'quantity',)
     
-class ProfileInline(admin.StackedInline):
-    model = Profile
-    can_delete = False
     
 class UserAdmin(BaseUserAdmin):
     inlines = [ProfileInline,]
@@ -43,4 +44,5 @@ admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
 admin.site.register(Recipe, RecipeAdmin)
 admin.site.register(Ingredient, IngredientAdmin)
+admin.site.register(RecipeImage, RecipeImageAdmin)
 admin.site.register(RecipeIngredient, RecipeIngredientAdmin)
