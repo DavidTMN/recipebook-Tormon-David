@@ -25,10 +25,16 @@ class Recipe(models.Model):
     
 class RecipeIngredient(models.Model):
     Quantity = models.CharField(max_length=50)
-    Recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="ingredients", null=True)
-    Ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE, related_name="recipe", null=True)
+    Recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='ingredients', null=True)
+    Ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE, related_name='recipe', null=True)
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     name = models.CharField(max_length=50)
     bio = models.CharField(max_length=255)
+    
+class RecipeImage(models.Model):
+    Image = models.ImageField(null=False)
+    Description = models.CharField(max_length=255)
+    Recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="image")
+    
