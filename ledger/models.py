@@ -9,7 +9,7 @@ class Ingredient(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('ledger:ingredientDetail', args=[self.pk])
+        return reverse('ledger:IngredientDetail', args=[self.pk])
     
 class Recipe(models.Model):
     name = models.CharField(max_length=50)
@@ -21,12 +21,12 @@ class Recipe(models.Model):
         return self.name
 
     def get_absolute_url(self):
-        return reverse('ledger:recipeDetail', args=[self.pk])
+        return reverse('ledger:RecipeDetail', args=[self.pk])
     
-class Recipe_Ingredient(models.Model):
-    Quantity = models.CharField(max_length=50)
-    Recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='ingredients', null=True)
-    Ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE, related_name='recipe', null=True)
+class RecipeIngredient(models.Model):
+    quantity = models.CharField(max_length=50)
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name='ingredients', null=True)
+    ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE, related_name='recipe', null=True)
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
@@ -34,7 +34,7 @@ class Profile(models.Model):
     bio = models.CharField(max_length=255)
     
 class RecipeImage(models.Model):
-    Image = models.ImageField(null=False)
-    Description = models.CharField(max_length=255)
-    Recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="image")
+    image = models.ImageField(null=False)
+    description = models.CharField(max_length=255)
+    recipe = models.ForeignKey(Recipe, on_delete=models.CASCADE, related_name="image")
     

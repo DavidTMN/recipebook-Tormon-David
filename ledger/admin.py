@@ -6,14 +6,18 @@ from .models import Recipe, Ingredient, RecipeIngredient, Profile, RecipeImage
 class RecipeIngredientInline(admin.TabularInline):
     model = RecipeIngredient
     
+class RecipeImageInline(admin.TabularInline):
+    model = RecipeImage
+    
+class RecipeImage(admin.ModelAdmin):
+    model = RecipeImage
+    description = ('description',)
+    
 class IngredientAdmin(admin.ModelAdmin):
     model = Ingredient
     list_display = ('name',)
     list_filter = ('name',)
     search_fields = ('name',)
-    
-class RecipeImageInline(admin.StackedInline):
-    model = RecipeImage
     
 class RecipeAdmin(admin.ModelAdmin):
     model = Recipe
@@ -21,12 +25,12 @@ class RecipeAdmin(admin.ModelAdmin):
     inlines = [RecipeIngredientInline]
     search_fields = ('name',)
     list_filter = ('name',)
-    inlines = RecipeImageInline
+    inlines = [RecipeImageInline]
     
 class RecipeIngredientAdmin(admin.ModelAdmin):
     model = RecipeIngredient
-    list_display = ('Recipe', 'Ingredient', 'Quantity',)
-    list_filter = ('Recipe', 'Ingredient', 'Quantity',)
+    list_display = ('recipe', 'ingredient', 'quantity',)
+    list_filter = ('recipe', 'ingredient', 'quantity',)
     
 class ProfileInline(admin.StackedInline):
     model = Profile
