@@ -18,7 +18,6 @@ class RecipeAdmin(admin.ModelAdmin):
     inlines = [RecipeIngredientInline]
     search_fields = ('name',)
     list_filter = ('name',)
-    images = RecipeImage
     
 class RecipeIngredientAdmin(admin.ModelAdmin):
     model = RecipeIngredient
@@ -31,6 +30,9 @@ class ProfileInline(admin.StackedInline):
     
 class UserAdmin(BaseUserAdmin):
     inlines = [ProfileInline,]
+    
+class RecipeImageInline(admin.StackedInline):
+    model = [RecipeImage,]
     
 admin.site.unregister(User)
 admin.site.register(User, UserAdmin)
