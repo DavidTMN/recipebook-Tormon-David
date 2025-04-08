@@ -1,17 +1,31 @@
-from django.shortcuts import render
-from .models import Recipe
+from django.shortcuts import render, redirect
 from django.contrib.auth.decorators import login_required
+from .models import Recipe
+from .forms import RecipeImageForm, RecipeForm
 
 @login_required
 def recipes_in_database(request):
     recipes = Recipe.objects.all()
-    return render(request, 'recipe_list.html', {'recipes': recipes})
+    ctx = {
+        "recipes": recipes
+    }
+    return render(request, 'recipe_list.html', ctx)
 
 @login_required
 def recipe_contents(request, pk):
     recipe = Recipe.objects.get(pk=pk)
-    return render(request, 'ingredient_list.html', {'recipe': recipe})
+    ctx = {
+        "recipe": recipe
+    }
+    return render(request, 'ingredient_list.html', ctx)
 
 @login_required
-def recipe_add(request):
-    return render(request, 'recipe_add.html', )
+def add_image(request, pk):
+    form = RecipeForm()
+    if request.method == 'POST':
+        form = RecipeForm(request.POST)
+        if form.is_valid():
+            task = form.save()
+            return redirect('recipe_contents', pk=task.pk)
+    ctx = 
+            
