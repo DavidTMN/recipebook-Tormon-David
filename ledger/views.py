@@ -40,9 +40,8 @@ def add_recipe(request):
         form = RecipeForm(request.POST)
         if form.is_valid():
             recipe = form.save(commit=False)
-            profile = Profile.objects.get(user=request.user)
-            recipe.author = profile
+            recipe.author = request.user
             recipe.save()
-            return redirect('ledger:recipe_list')
+            return redirect('ledger:recipe_detail', pk = recipe.pk)
     return render(request, "add_recipe.html", {"form": form})
             
