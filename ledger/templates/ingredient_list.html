@@ -12,12 +12,16 @@
 </div>
 
 <h3>Images of {{ recipe.name }}:</h3>
-{% for img in recipe.images.all %}
-    {% if image.recipe.id == recipe.id %}
-        <img src="{{ image.image.url }}" alt="{{ image.description }}">
+{% for img in recipe.image.all %}
+    {% if img.recipe.pk == recipe.pk %}
+        <img src="{{ img.image.url }}" alt="{{ img.description }}">
     {% endif %}
 {% endfor %}
 </h3>
+
+<div>
+    <a href="{% url 'add_image' pk=recipe.pk %}">Upload new image for this recipe</a>
+</div>
 
     <a><br>Ingredients:</a>
     <ul>

@@ -29,20 +29,20 @@ def add_image(request, pk):
             recipe_image = form.save(commit=False)
             recipe_image.recipe = recipe
             recipe_image.save()
-            return redirect("recipe_detail", pk=recipe.pk)
+            return redirect("ledger:recipe_detail", pk=recipe.pk)
     ctx = {"form": form, "recipe": recipe}
     return render(request, 'add_image.html', {'form': form, 'recipe': recipe})
         
 @login_required
-def add_recipe(request, pk):
+def add_recipe(request):
     form = RecipeForm()
     if request.method == 'POST':
         form = RecipeForm(request.POST)
         if form.is_valid():
             recipe = form.save(commit=False)
-            author = Profile.objects.get(user=request.user)
-            recipe.author = author
+            profile = Profile.objects.get(user=request.user)
+            recipe.author = profile
             recipe.save()
-            return redirect('recipe_contents')
+            return redirect('ledger:recipe_list')
     return render(request, "add_recipe.html", {"form": form})
             
