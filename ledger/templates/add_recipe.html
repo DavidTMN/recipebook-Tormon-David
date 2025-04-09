@@ -18,7 +18,7 @@
     {{ formset.management_form }}
     {% for form in formset %}
         <div class="ingredient-form">
-            {{ ingredient_form.as_p }}
+            {{ form.as_p }}
         </div>
     {% endfor %}
     
