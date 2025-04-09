@@ -13,7 +13,7 @@ class RecipeForm(forms.ModelForm):
         model = Recipe
         fields = ['name']
         
-IngredientFormSet = inlineformset_factory(
+RecipeIngredientFormSet = inlineformset_factory(
     Recipe,
     RecipeIngredient,
     fields=('ingredient', 'quantity'),

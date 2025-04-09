@@ -18,12 +18,12 @@
     {{ formset.management_form }}
     {% for form in formset %}
         <div class="ingredient-form">
-            {{ form.as_p }}
+            {{ ingredient_form.as_p }}
         </div>
     {% endfor %}
     
-    <button type="submit" class="btn btn-primary">Create Recipe</button>
-    <a href="{% url 'recipe_list' %}" class="btn btn-secondary">Cancel</a>
+    <button type="submit" class="btn btn-primary">Save Recipe</button>
+    <a href="{% url 'ledger:recipe_list' %}"></a>
 </form>
     
 {% endblock %}
