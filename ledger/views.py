@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.contrib.auth.decorators import login_required
 from .models import Recipe, Profile
 from .forms import RecipeImageForm, RecipeForm
@@ -21,12 +21,17 @@ def recipe_contents(request, pk):
 
 @login_required
 def add_image(request, pk):
-    form = RecipeForm()
-    if request.method == 'POST':
-        form = RecipeForm(request.POST)
+    recipe = get_object_or_404(Recipe, pk=pk)
+    form = RecipeImageForm()
+    if request.method == "POST":
+        form = RecipeImageForm(request.POST, request.FILES)
         if form.is_valid():
-            task = form.save()
-            return redirect('recipe_contents', pk=task.pk)
+            recipe_image = form.save(commit=False)
+            recipe_image.recipe = recipe
+            recipe_image.save()
+            return redirect("recipe_detail", pk=recipe.pk)
+    ctx = {"form": form, "recipe": recipe}
+    return render(request, 'add_image.html', {'form': form, 'recipe': recipe})
         
 @login_required
 def add_recipe(request, pk):

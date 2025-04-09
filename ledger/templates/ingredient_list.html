@@ -6,9 +6,19 @@
 
 <div>
     {{ recipe.name }}
+    Author: {{recipe.author.username}}
+    Created on: {{ recipe.created_on }} Last updated: {{ recipe.last_update_on }}
     <img src="{{ recipe.image.url }}" alt="{{ recipe.description }}">
-    {{ recipe.image }}
 </div>
+
+<h3>Images of {{ recipe.name }}:</h3>
+{% for img in recipe.images.all %}
+    {% if image.recipe.id == recipe.id %}
+        <img src="{{ image.image.url }}" alt="{{ image.description }}">
+    {% endif %}
+{% endfor %}
+</h3>
+
     <a><br>Ingredients:</a>
     <ul>
         {% for ingredient in recipe.ingredients.all %}
