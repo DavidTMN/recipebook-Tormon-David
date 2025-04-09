@@ -27,5 +27,13 @@ def add_image(request, pk):
         if form.is_valid():
             task = form.save()
             return redirect('recipe_contents', pk=task.pk)
-    ctx = 
+        
+@login_required
+def add_recipe(request, pk):
+    form = RecipeForm()
+    if request.method == 'POST':
+        form = RecipeForm(request.POST)
+        if form.is_valid():
+            task = form.save()
+            return redirect('recipe_contents', pk=task.pk)
             
