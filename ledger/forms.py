@@ -16,7 +16,7 @@ class RecipeForm(forms.ModelForm):
 IngredientFormSet = inlineformset_factory(
     Recipe,
     RecipeIngredient,
-    fields=('ingredient', 'quantity', 'unit'),
-    extra=3,
+    fields=('ingredient', 'quantity'),
+    extra=2,
     can_delete=False
 )
