@@ -10,8 +10,20 @@
 {% block content %}        
 <form method="POST" enctype="multipart/form-data">
     {% csrf_token %}
-    {{form}}
-    <button type="submit", value="submit">submit</button>
+    
+    <h3>Recipe Details</h3>
+    {{ form.as_p }}
+    
+    <h3>Ingredients</h3>
+    {{ formset.management_form }}
+    {% for form in formset %}
+        <div class="ingredient-form">
+            {{ form.as_p }}
+        </div>
+    {% endfor %}
+    
+    <button type="submit" class="btn btn-primary">Create Recipe</button>
+    <a href="{% url 'recipe_list' %}" class="btn btn-secondary">Cancel</a>
 </form>
     
 {% endblock %}
